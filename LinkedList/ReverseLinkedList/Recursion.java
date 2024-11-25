@@ -1,3 +1,7 @@
+// Time: O(n)
+// Space: O(n)
+// Edge cases: Empty list, Single Node, duplicate values
+
 package LinkedList.ReverseLinkedList;
 
 // Definition for singly-linked list.
@@ -20,18 +24,18 @@ class ListNode {
 
 public class Recursion {
     public ListNode reverseList(ListNode head) {
-        // Base case: if the list is empty or only one node, return the head
-        if (head == null || head.next == null) {
+        // Base case
+        if (head == null) {
             return head;
         }
 
-        // Recursive call: reverse the rest of the list
-        ListNode newHead = reverseList(head.next);
-
-        // Executes after base case
-        // Adjust the next pointer of the current node
-        head.next.next = head; // Make the next node point to the current node
-        head.next = null;      // Disconnect the current node from the rest
+        // Backtracking
+        ListNode newHead = head;
+        if (head.next != null) {
+            newHead = reverseList(head.next);
+            head.next.next = head;
+        }
+        head.next = null;
 
         // Return the new head of the reversed list
         return newHead;

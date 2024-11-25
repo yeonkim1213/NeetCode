@@ -1,3 +1,7 @@
+// Time: O(n)
+// Space: O(1)
+// Edge cases: Empty list, Single Node
+
 package LinkedList.ReverseLinkedList;
 
 // Definition for singly-linked list.
